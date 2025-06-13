@@ -31,12 +31,12 @@ let newNum = numList[5];
 
 let results = numList.filter((num) => num > 2);
 
-let emp = empList.find((emp) => emp === "Software");
+//let emp = empList.find((emp) => emp === "Software");
 
 let sum = numList.reduce((acc, num) => acc + num);
 
 console.log(results);
-console.log(emp);
+//console.log(emp);
 console.log(sum);
 
 

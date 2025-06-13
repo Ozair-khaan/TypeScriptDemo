@@ -15,3 +15,8 @@ function add2(num1, num2, ...num3) {
 }
 let numbers = [1, 2, 3, 4, 5];
 console.log(add2(2, 3, ...numbers));
+function getItems(items) {
+    return new Array().concat(items);
+}
+let concatResult = getItems([1, 2, 3, 4, 5]);
+let concatString = getItems(["a", "b", "c", "d", "e"]);
