@@ -11,6 +11,8 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
 var _Employee_id;
+Object.defineProperty(exports, "__esModule", { value: true });
+// class Employee implements UserLogin.Login {
 class Employee {
     //setter and getter
     get empId() {
@@ -29,6 +31,9 @@ class Employee {
         this.name = name;
         this.address = address;
     }
+    login() {
+        return { name: "John", age: 25, id: 1, email: "" };
+    }
     //   getNameWithAddress(): string {
     //     return this.name + " " + this.address;
     //   }
@@ -37,7 +42,12 @@ class Employee {
     }
 }
 _Employee_id = new WeakMap();
-let john = new Employee(1, "John", "Highway 71");
+let john = new Employee(1, "John", {
+    street: "ABC",
+    city: "Bangalore",
+    state: "Karnataka",
+    pincode: 560076,
+});
 john.empId = 100;
 console.log(john.empId);
 Employee.getEmployeeCount(); //called static block
@@ -55,5 +65,10 @@ class Manager extends Employee {
 console.log(john);
 let address = john.getNameWithAddress();
 console.log(address);
-let mike = new Manager(2, "Mike", "Morgan Stanley");
+let mike = new Manager(2, "Mike", {
+    street: "ABC",
+    city: "Bangalore",
+    state: "Karnataka",
+    pincode: 560076,
+});
 console.log(mike.getNameWithAddress());

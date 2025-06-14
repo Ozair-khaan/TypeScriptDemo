@@ -1,8 +1,20 @@
-class Employee {
+import { Login, User } from "./interface";
+
+import * as UserLogin from "./interface"; //we need concate the UserLogin with . (refer line no 12)
+
+interface Address {
+  street: string;
+  city: string;
+  state: string;
+  pincode: number;
+}
+
+// class Employee implements UserLogin.Login {
+class Employee implements Login {
   //   private id: number;
   #id: number; //this one is also make private
   protected name: string;
-  address: string;
+  address: Address;
 
   //setter and getter
   get empId(): number {
@@ -17,10 +29,13 @@ class Employee {
     return 50;
   }
 
-  constructor(id: number, name: string, address: string) {
+  constructor(id: number, name: string, address: Address) {
     this.#id = id;
     this.name = name;
     this.address = address;
+  }
+  login(): User {
+    return { name: "John", age: 25, id: 1, email: "" };
   }
 
   //   getNameWithAddress(): string {
@@ -32,7 +47,12 @@ class Employee {
   }
 }
 
-let john = new Employee(1, "John", "Highway 71");
+let john = new Employee(1, "John", {
+  street: "ABC",
+  city: "Bangalore",
+  state: "Karnataka",
+  pincode: 560076,
+});
 
 john.empId = 100;
 
@@ -41,7 +61,7 @@ console.log(john.empId);
 Employee.getEmployeeCount(); //called static block
 
 class Manager extends Employee {
-  constructor(id: number, name: string, address: string) {
+  constructor(id: number, name: string, address: Address) {
     super(id, name, address);
   }
   getNameWithAddress(): string {
@@ -59,6 +79,11 @@ let address = john.getNameWithAddress();
 
 console.log(address);
 
-let mike = new Manager(2, "Mike", "Morgan Stanley");
+let mike = new Manager(2, "Mike", {
+  street: "ABC",
+  city: "Bangalore",
+  state: "Karnataka",
+  pincode: 560076,
+});
 
 console.log(mike.getNameWithAddress());
